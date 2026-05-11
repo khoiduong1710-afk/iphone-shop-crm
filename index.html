@@ -18,50 +18,56 @@
   --r:8px;--rlg:12px;
 }
 body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:var(--bg);color:var(--text);font-size:14px;min-height:100vh}
-
-/* SCREENS */
-.screen{display:none;align-items:center;justify-content:center;min-height:100vh;background:var(--bg)}
+.screen{display:none;align-items:center;justify-content:center;min-height:100vh}
 .screen.show{display:flex}
 .card-box{background:var(--surface);border:1px solid var(--border);border-radius:var(--rlg);padding:32px;width:420px}
 .card-box h2{font-size:20px;font-weight:700;margin-bottom:4px;display:flex;align-items:center;gap:8px;color:var(--blue)}
 .card-box p{font-size:13px;color:var(--text2);margin-bottom:22px}
-.fl{margin-bottom:13px}
+.fl{margin-bottom:12px}
 .fl label{font-size:12px;color:var(--text2);display:block;margin-bottom:4px;font-weight:500}
-.fl input,.fl select{width:100%;padding:9px 12px;border:1px solid var(--border-med);border-radius:var(--r);font-size:13px;background:var(--surface);color:var(--text);outline:none;font-family:inherit}
-.fl input:focus,.fl select:focus{border-color:var(--blue);box-shadow:0 0 0 3px rgba(24,95,165,0.1)}
+.fl input,.fl select,.fl textarea{width:100%;padding:8px 11px;border:1px solid var(--border-med);border-radius:var(--r);font-size:13px;background:var(--surface);color:var(--text);outline:none;font-family:inherit}
+.fl input:focus,.fl select:focus,.fl textarea:focus{border-color:var(--blue);box-shadow:0 0 0 3px rgba(24,95,165,0.1)}
+.fl textarea{height:66px;resize:none;line-height:1.5}
 .btn-full{width:100%;padding:10px;background:var(--blue);color:#fff;border:none;border-radius:var(--r);font-size:14px;font-weight:600;cursor:pointer;margin-top:4px}
 .btn-full:hover{background:#0C447C}
 .err{font-size:12px;color:var(--red);margin-top:8px}
 .hint{font-size:11px;color:var(--text3);margin-top:10px}
 .note-box{font-size:12px;color:var(--text3);margin-top:14px;background:var(--bg);padding:10px 12px;border-radius:var(--r);line-height:1.6}
-
-/* APP */
 #app{display:none;flex-direction:column;min-height:100vh}
 .hdr{background:var(--surface);border-bottom:1px solid var(--border);padding:0 24px;height:54px;display:flex;align-items:center;gap:12px;position:sticky;top:0;z-index:20}
 .hdr-logo{font-size:15px;font-weight:700;color:var(--blue);display:flex;align-items:center;gap:6px}
-.hdr-right{margin-left:auto;display:flex;align-items:center;gap:10px;font-size:13px;color:var(--text2)}
-.hdr-right b{color:var(--text)}
+.hdr-right{margin-left:auto;display:flex;align-items:center;gap:10px;font-size:13px}
+.role-badge{font-size:11px;padding:3px 9px;border-radius:10px;font-weight:600}
+.role-t1{background:var(--blue-bg);color:var(--blue-text)}
+.role-t2{background:var(--green-bg);color:var(--green-text)}
+.role-manager{background:var(--purple-bg);color:var(--purple-text)}
 .logout-btn{font-size:12px;border:1px solid var(--border-med);padding:4px 12px;border-radius:20px;cursor:pointer;background:transparent;color:var(--text2)}
-
-/* STATS BAR */
+.alert-bar{display:none;padding:8px 24px;border-bottom:1px solid #F59E0B;background:#FEF3C7;gap:10px;flex-wrap:wrap;align-items:center}
+.alert-bar.show{display:flex}
+.alert-lbl{font-size:12px;font-weight:600;color:#92400E;display:flex;align-items:center;gap:5px}
+.alert-chip{font-size:12px;padding:4px 12px;border-radius:20px;cursor:pointer;font-weight:500;display:flex;align-items:center;gap:5px}
+.alert-chip.red{background:var(--red-bg);color:var(--red-text)}
+.alert-chip.amber{background:#FDE68A;color:#92400E}
+.view-tabs{display:flex;background:var(--surface);border-bottom:2px solid var(--border);padding:0 24px}
+.vtab{padding:10px 18px;font-size:13px;font-weight:500;color:var(--text2);cursor:pointer;border-bottom:2px solid transparent;margin-bottom:-2px;display:flex;align-items:center;gap:6px}
+.vtab:hover{color:var(--text)}
+.vtab.on{color:var(--blue);border-bottom-color:var(--blue)}
+.vtab .vbadge{font-size:11px;background:var(--red-bg);color:var(--red-text);padding:1px 7px;border-radius:10px;font-weight:600}
 .stats{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;padding:16px 24px 0}
-.stat{background:var(--surface);border-radius:var(--r);padding:12px 16px;border:1px solid var(--border)}
+.stat{background:var(--surface);border-radius:var(--r);padding:12px 16px;border:1px solid var(--border);cursor:pointer}
+.stat:hover{border-color:var(--border-med)}
 .stat-lbl{font-size:11px;color:var(--text2);margin-bottom:4px}
 .stat-val{font-size:22px;font-weight:700}
 .stat-val.blue{color:var(--blue)}.stat-val.red{color:var(--red)}.stat-val.green{color:var(--green)}.stat-val.amber{color:var(--amber)}
-
-/* TOOLBAR */
 .tbar{padding:14px 24px;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
-.tbar-filters{display:flex;gap:6px;flex-wrap:wrap;flex:1}
-.fbtn{font-size:12px;padding:5px 13px;border-radius:20px;border:1px solid var(--border-med);background:transparent;color:var(--text2);cursor:pointer;transition:all .15s;white-space:nowrap}
+.tbar-left{display:flex;gap:6px;flex:1;flex-wrap:wrap}
+.fbtn{font-size:12px;padding:5px 13px;border-radius:20px;border:1px solid var(--border-med);background:transparent;color:var(--text2);cursor:pointer;white-space:nowrap}
 .fbtn:hover{background:var(--surface)}
 .fbtn.on{background:var(--blue);color:#fff;border-color:var(--blue)}
-.search-box{display:flex;align-items:center;gap:6px;background:var(--surface);border:1px solid var(--border-med);border-radius:var(--r);padding:6px 12px;flex:0 0 220px}
-.search-box input{border:none;outline:none;font-size:13px;background:transparent;color:var(--text);width:100%}
+.search-wrap{display:flex;align-items:center;gap:6px;background:var(--surface);border:1px solid var(--border-med);border-radius:var(--r);padding:6px 12px;width:220px}
+.search-wrap input{border:none;outline:none;font-size:13px;background:transparent;width:100%}
 .add-btn{padding:8px 18px;background:var(--blue);color:#fff;border:none;border-radius:var(--r);font-size:13px;font-weight:600;cursor:pointer;display:flex;align-items:center;gap:6px;white-space:nowrap}
 .add-btn:hover{background:#0C447C}
-
-/* TABLE */
 .tbl-wrap{padding:0 24px 24px;overflow-x:auto}
 .tbl{width:100%;border-collapse:collapse;background:var(--surface);border-radius:var(--rlg);overflow:hidden;border:1px solid var(--border)}
 .tbl thead tr{background:#F8F8F6}
@@ -69,9 +75,8 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
 .tbl td{padding:11px 14px;border-bottom:1px solid var(--border);font-size:13px;vertical-align:middle}
 .tbl tr:last-child td{border-bottom:none}
 .tbl tr:hover td{background:#FAFAF8;cursor:pointer}
-.tbl tr.selected td{background:#EDF4FB}
-
-/* TAGS */
+.tbl tr.urg td{background:#FFF5F5}.tbl tr.urg:hover td{background:#FFE8E8}
+.tbl tr.wrn td{background:#FFFBF0}.tbl tr.wrn:hover td{background:#FEF3C7}
 .tag{display:inline-flex;align-items:center;gap:3px;font-size:11px;padding:2px 9px;border-radius:10px;font-weight:500;white-space:nowrap}
 .t-hot{background:var(--red-bg);color:var(--red-text)}
 .t-warm{background:var(--amber-bg);color:var(--amber-text)}
@@ -85,56 +90,48 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
 .t-khong{background:var(--red-bg);color:var(--red-text)}
 .t-daghe{background:var(--green-bg);color:var(--green-text)}
 .t-chuaghe{background:var(--amber-bg);color:var(--amber-text)}
-
-.name-cell{font-weight:600;color:var(--text)}
-.sub-cell{font-size:11px;color:var(--text3);margin-top:2px}
-.phone-link{font-size:12px;color:var(--blue);text-decoration:none}
-.empty-row td{text-align:center;padding:40px;color:var(--text3);font-size:13px}
-
-/* MODAL */
+.name-bold{font-weight:600}
+.sub-txt{font-size:11px;color:var(--text3);margin-top:1px}
+.urg-badge{font-size:10px;background:var(--red);color:#fff;padding:1px 6px;border-radius:8px;margin-left:4px;font-weight:700}
+.wrn-badge{font-size:10px;background:#F59E0B;color:#fff;padding:1px 6px;border-radius:8px;margin-left:4px;font-weight:700}
+.empty-row td,.loading-row td{text-align:center;padding:40px;color:var(--text3)}
 .overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.35);z-index:100;align-items:flex-start;justify-content:center;padding:30px 16px;overflow-y:auto}
 .overlay.show{display:flex}
 .modal{background:var(--surface);border-radius:var(--rlg);padding:24px;width:540px;max-width:100%;margin-bottom:30px}
 .modal-hdr{display:flex;align-items:center;justify-content:space-between;margin-bottom:18px}
-.modal-hdr h3{font-size:16px;font-weight:600}
-.modal-close{background:none;border:none;font-size:22px;cursor:pointer;color:var(--text3);line-height:1}
+.modal-hdr h3{font-size:16px;font-weight:600;display:flex;align-items:center;gap:8px}
+.modal-close{background:none;border:none;font-size:22px;cursor:pointer;color:var(--text3)}
 .sec{font-size:11px;font-weight:700;color:var(--text3);text-transform:uppercase;letter-spacing:0.06em;margin:16px 0 10px;padding-top:14px;border-top:1px solid var(--border)}
-.sec:first-of-type{margin-top:0;padding-top:0;border:none}
+.sec.first{margin-top:0;padding-top:0;border:none}
 .row2{display:grid;grid-template-columns:1fr 1fr;gap:10px}
 .row3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px}
-.fl textarea{width:100%;padding:8px 11px;border:1px solid var(--border-med);border-radius:var(--r);font-size:13px;background:var(--surface);color:var(--text);outline:none;font-family:inherit;height:66px;resize:none;line-height:1.5}
-.fl textarea:focus{border-color:var(--blue)}
 .modal-foot{display:flex;gap:8px;justify-content:flex-end;margin-top:18px;padding-top:16px;border-top:1px solid var(--border)}
 .btn-pri{background:var(--blue);color:#fff;border:none;padding:8px 22px;border-radius:var(--r);font-size:13px;font-weight:600;cursor:pointer}
 .btn-pri:hover{background:#0C447C}
 .btn-sec{background:transparent;border:1px solid var(--border-med);color:var(--text2);padding:8px 16px;border-radius:var(--r);font-size:13px;cursor:pointer}
-.btn-mua{background:var(--green-bg);color:var(--green-text);border:1px solid #97C459;padding:7px 14px;border-radius:var(--r);font-size:12px;font-weight:600;cursor:pointer}
-.btn-khong{background:var(--red-bg);color:var(--red-text);border:1px solid #F09595;padding:7px 14px;border-radius:var(--r);font-size:12px;font-weight:600;cursor:pointer}
-
+.btn-mua{background:var(--green-bg);color:var(--green-text);border:1px solid #97C459;padding:7px 16px;border-radius:var(--r);font-size:13px;font-weight:600;cursor:pointer}
+.btn-mua:hover{background:#C0DD97}
+.btn-khong-o{background:var(--red-bg);color:var(--red-text);border:1px solid #F09595;padding:7px 16px;border-radius:var(--r);font-size:13px;font-weight:600;cursor:pointer}
 .status-sec{margin-top:14px;padding-top:14px;border-top:1px solid var(--border)}
 .status-sec h4{font-size:12px;font-weight:600;color:var(--text2);margin-bottom:8px}
-.move-btns{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:8px}
+.move-btns{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:10px}
 .move-btn{font-size:12px;padding:6px 12px;border-radius:var(--r);border:1px solid var(--border-med);background:var(--bg);color:var(--text2);cursor:pointer}
 .move-btn:hover{background:var(--surface);color:var(--text)}
-.kq-btns{display:flex;gap:6px}
-
+.kq-row{display:flex;gap:8px}
 .hist-sec{margin-top:14px;padding-top:14px;border-top:1px solid var(--border)}
-.hist-sec h4{font-size:12px;font-weight:600;color:var(--text2);margin-bottom:8px}
+.hist-sec h4{font-size:12px;font-weight:600;color:var(--text2);margin-bottom:8px;display:flex;align-items:center;gap:5px}
 .hist-item{font-size:12px;color:var(--text2);padding:6px 0;border-bottom:1px solid var(--border);line-height:1.5}
 .hist-item:last-child{border-bottom:none}
 .hist-time{font-size:11px;color:var(--text3)}
-
 .info-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:14px}
 .info-item{background:var(--bg);border-radius:var(--r);padding:8px 10px}
 .info-lbl{font-size:11px;color:var(--text3);margin-bottom:2px}
 .info-val{font-size:13px;font-weight:500}
-
-.loading-row td{text-align:center;padding:40px;color:var(--text3)}
+.urg-alert{background:var(--red-bg);border:1px solid #F09595;border-radius:var(--r);padding:10px 14px;margin-bottom:14px;font-size:13px;color:var(--red-text);display:flex;align-items:center;gap:8px;font-weight:500}
 </style>
 </head>
 <body>
 
-<!-- CONFIG -->
 <div class="screen" id="cfgScreen">
   <div class="card-box">
     <h2><i class="ti ti-settings"></i>Cài đặt kết nối</h2>
@@ -146,13 +143,11 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
   </div>
 </div>
 
-<!-- LOGIN -->
 <div class="screen" id="loginScreen">
   <div class="card-box">
     <h2><i class="ti ti-device-mobile"></i>iPhone Shop CRM</h2>
     <p>Đăng nhập để quản lý khách hàng</p>
-    <div class="fl">
-      <label>Nhân viên</label>
+    <div class="fl"><label>Nhân viên</label>
       <select id="login-nv">
         <option value="">-- Chọn tên --</option>
         <option value="Huyền (T1)">Huyền — Tầng 1 (Rep IB)</option>
@@ -162,66 +157,46 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
         <option value="Manager">Manager</option>
       </select>
     </div>
-    <div class="fl"><label>Mật khẩu</label><input type="password" id="login-pw" placeholder="Nhập mật khẩu" onkeydown="if(event.key==='Enter')doLogin()"></div>
+    <div class="fl"><label>Mật khẩu</label><input type="password" id="login-pw" onkeydown="if(event.key==='Enter')doLogin()"></div>
     <button class="btn-full" onclick="doLogin()">Đăng nhập</button>
     <div id="login-err" class="err"></div>
-    <div class="hint">Huyền = <b>tang1</b> &nbsp;|&nbsp; Hiếu/Trang/Thư = <b>tang2</b> &nbsp;|&nbsp; Manager = <b>admin123</b></div>
+    <div class="hint">Huyền = <b>tang1</b> | Hiếu/Trang/Thư = <b>tang2</b> | Manager = <b>admin123</b></div>
   </div>
 </div>
 
-<!-- APP -->
 <div id="app">
   <div class="hdr">
     <div class="hdr-logo"><i class="ti ti-device-mobile" style="font-size:18px"></i>iPhone Shop CRM</div>
     <div class="hdr-right">
-      <i class="ti ti-user-circle" style="font-size:18px"></i>
-      <b id="cur-user"></b>
+      <span id="role-badge" class="role-badge"></span>
+      <b id="cur-user" style="font-size:13px"></b>
       <button class="logout-btn" onclick="doLogout()">Đăng xuất</button>
     </div>
   </div>
-
+  <div class="alert-bar" id="alertBar">
+    <div class="alert-lbl"><i class="ti ti-alert-triangle" style="font-size:14px"></i>Cần xử lý ngay:</div>
+    <div id="alertItems" style="display:flex;gap:8px;flex-wrap:wrap"></div>
+  </div>
+  <div class="view-tabs" id="viewTabs"></div>
   <div class="stats" id="statsBar"></div>
-
   <div class="tbar">
-    <div class="tbar-filters" id="filterBar">
+    <div class="tbar-left" id="filterBar">
       <button class="fbtn on" onclick="setFilter('all',this)">Tất cả</button>
-      <button class="fbtn" onclick="setFilter('inbox',this)">IB mới</button>
-      <button class="fbtn" onclick="setFilter('tiepnhan',this)">Tiếp nhận</button>
-      <button class="fbtn" onclick="setFilter('henlich',this)">Đã hẹn</button>
-      <button class="fbtn" onclick="setFilter('gheshop',this)">Ghé shop</button>
-      <button class="fbtn" onclick="setFilter('ketqua',this)">Kết quả</button>
       <button class="fbtn" onclick="setFilter('hot',this)">🔴 Hot</button>
       <button class="fbtn" onclick="setFilter('warm',this)">🟡 Warm</button>
       <button class="fbtn" onclick="setFilter('chua-ghe',this)">Chưa ghé</button>
       <button class="fbtn" onclick="setFilter('today',this)">Hôm nay</button>
     </div>
-    <div class="search-box">
+    <div class="search-wrap">
       <i class="ti ti-search" style="font-size:15px;color:var(--text3)"></i>
-      <input id="searchInput" placeholder="Tìm tên, SĐT..." oninput="render()">
+      <input id="searchInput" placeholder="Tìm tên, SĐT..." oninput="renderTable()">
     </div>
     <button class="add-btn" onclick="openAdd()"><i class="ti ti-plus" style="font-size:15px"></i>Thêm khách</button>
   </div>
-
   <div class="tbl-wrap">
     <table class="tbl">
-      <thead>
-        <tr>
-          <th>Khách hàng</th>
-          <th>Nguồn</th>
-          <th>Máy quan tâm</th>
-          <th>Ngân sách</th>
-          <th>Phân loại</th>
-          <th>Trạng thái</th>
-          <th>Ghé shop</th>
-          <th>Kết quả</th>
-          <th>Giờ hẹn</th>
-          <th>NV phụ trách</th>
-          <th>Thời gian</th>
-        </tr>
-      </thead>
-      <tbody id="tblBody">
-        <tr class="loading-row"><td colspan="11">Đang tải dữ liệu...</td></tr>
-      </tbody>
+      <thead id="tblHead"></thead>
+      <tbody id="tblBody"><tr class="loading-row"><td colspan="11">Đang tải...</td></tr></tbody>
     </table>
   </div>
 </div>
@@ -230,10 +205,10 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
 <div class="overlay" id="addModal">
   <div class="modal">
     <div class="modal-hdr">
-      <h3><i class="ti ti-user-plus" style="vertical-align:-2px;margin-right:6px;color:var(--blue)"></i>Thêm khách mới</h3>
+      <h3><i class="ti ti-user-plus" style="color:var(--blue)"></i>Thêm khách mới</h3>
       <button class="modal-close" onclick="closeModal('addModal')">×</button>
     </div>
-    <div class="sec">Thông tin liên hệ</div>
+    <div class="sec first">Thông tin liên hệ</div>
     <div class="fl"><label>Tên khách *</label><input id="f-name" placeholder="Nguyễn Văn A"></div>
     <div class="row2">
       <div class="fl"><label>Số điện thoại</label><input id="f-phone" placeholder="0901234567"></div>
@@ -275,7 +250,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
     <div class="fl"><label>Nhân viên phụ trách</label>
       <select id="f-nv"><option>Huyền (T1)</option><option>Hiếu (T2)</option><option>Trang (T2)</option><option>Thư (T2)</option></select>
     </div>
-    <div class="fl"><label>Ghi chú</label><textarea id="f-note" placeholder="Nội dung khách hỏi, yêu cầu..."></textarea></div>
+    <div class="fl"><label>Ghi chú</label><textarea id="f-note" placeholder="Nội dung khách hỏi..."></textarea></div>
     <div class="modal-foot">
       <button class="btn-sec" onclick="closeModal('addModal')">Huỷ</button>
       <button class="btn-pri" onclick="saveLead()">Lưu khách</button>
@@ -283,11 +258,10 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
   </div>
 </div>
 
-<!-- DETAIL MODAL -->
 <div class="overlay" id="detailModal">
   <div class="modal">
     <div class="modal-hdr">
-      <h3 id="det-title">Chi tiết khách</h3>
+      <h3 id="det-title">Chi tiết</h3>
       <button class="modal-close" onclick="closeModal('detailModal')">×</button>
     </div>
     <div id="det-body"></div>
@@ -298,218 +272,202 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
 const PW={'Huyền (T1)':'tang1','Hiếu (T2)':'tang2','Trang (T2)':'tang2','Thư (T2)':'tang2','Manager':'admin123'};
 const NVS=['Huyền (T1)','Hiếu (T2)','Trang (T2)','Thư (T2)'];
 const COLS=[{id:'inbox',lbl:'IB mới'},{id:'tiepnhan',lbl:'Tiếp nhận'},{id:'henlich',lbl:'Đã hẹn'},{id:'gheshop',lbl:'Ghé shop'},{id:'ketqua',lbl:'Kết quả'}];
-const COL_TAG={'inbox':'t-inbox','tiepnhan':'t-tiepnhan','henlich':'t-henlich','gheshop':'t-gheshop','ketqua':'t-ketqua'};
-const COL_LBL={'inbox':'IB mới','tiepnhan':'Tiếp nhận','henlich':'Đã hẹn','gheshop':'Ghé shop','ketqua':'Kết quả'};
+const CTAG={'inbox':'t-inbox','tiepnhan':'t-tiepnhan','henlich':'t-henlich','gheshop':'t-gheshop','ketqua':'t-ketqua'};
+const CLBL={'inbox':'IB mới','tiepnhan':'Tiếp nhận','henlich':'Đã hẹn','gheshop':'Ghé shop','ketqua':'Kết quả'};
 const LY_DO=['Giá cao hơn dự kiến','Đã mua chỗ khác','Hẹn lại sau','Không còn nhu cầu','Máy không đúng ý','Thiếu tiền','Không liên lạc được','Lý do khác'];
 
-let SB_URL=localStorage.getItem('sb_url')||'';
-let SB_KEY=localStorage.getItem('sb_key')||'';
-let ME=null,leads=[],filter='all';
+let SB_URL=localStorage.getItem('sb_url')||'',SB_KEY=localStorage.getItem('sb_key')||'';
+let ME=null,ROLE=null,leads=[],vFilter='all',tFilter='all',refreshTimer=null;
 
 function init(){
-  if(!SB_URL||!SB_KEY){document.getElementById('cfgScreen').classList.add('show');}
-  else{document.getElementById('loginScreen').classList.add('show');}
+  if(!SB_URL||!SB_KEY)showScreen('cfgScreen');
+  else showScreen('loginScreen');
 }
-
+function showScreen(id){document.querySelectorAll('.screen').forEach(s=>s.classList.remove('show'));if(id)document.getElementById(id).classList.add('show');}
 function saveConfig(){
   const u=document.getElementById('cfg-url').value.trim(),k=document.getElementById('cfg-key').value.trim();
   if(!u||!k){alert('Vui lòng nhập đầy đủ');return;}
-  localStorage.setItem('sb_url',u);localStorage.setItem('sb_key',k);
-  SB_URL=u;SB_KEY=k;
-  document.getElementById('cfgScreen').classList.remove('show');
-  document.getElementById('loginScreen').classList.add('show');
+  localStorage.setItem('sb_url',u);localStorage.setItem('sb_key',k);SB_URL=u;SB_KEY=k;showScreen('loginScreen');
 }
-
+function getRole(nv){if(nv==='Manager')return'manager';if(nv==='Huyền (T1)')return't1';return't2';}
 function doLogin(){
   const nv=document.getElementById('login-nv').value,pw=document.getElementById('login-pw').value;
   if(!nv){document.getElementById('login-err').textContent='Chọn nhân viên';return;}
   if(PW[nv]!==pw){document.getElementById('login-err').textContent='Mật khẩu không đúng';return;}
-  ME=nv;
-  document.getElementById('loginScreen').classList.remove('show');
+  ME=nv;ROLE=getRole(nv);
+  showScreen(null);
   document.getElementById('app').style.display='flex';
   document.getElementById('cur-user').textContent=ME;
+  const b=document.getElementById('role-badge');
+  b.textContent=ROLE==='t1'?'Tầng 1':ROLE==='t2'?'Tầng 2':'Manager';
+  b.className='role-badge role-'+ROLE;
   document.getElementById('f-nv').value=ME;
-  fetchLeads();
+  setupTabs();fetchLeads();
+  if(refreshTimer)clearInterval(refreshTimer);
+  refreshTimer=setInterval(fetchLeads,120000);
 }
+function doLogout(){ME=null;ROLE=null;if(refreshTimer)clearInterval(refreshTimer);document.getElementById('app').style.display='none';showScreen('loginScreen');document.getElementById('login-err').textContent='';}
 
-function doLogout(){
-  ME=null;document.getElementById('app').style.display='none';
-  document.getElementById('loginScreen').classList.add('show');
-  document.getElementById('login-err').textContent='';
+function setupTabs(){
+  const el=document.getElementById('viewTabs');
+  if(ROLE==='t1'){
+    vFilter='inbox';
+    el.innerHTML=`<div class="vtab on" onclick="setVFilter('inbox',this)"><i class="ti ti-inbox" style="font-size:14px"></i>IB cần rep <span class="vbadge" id="vb-inbox"></span></div><div class="vtab" onclick="setVFilter('all',this)">Tất cả</div>`;
+  } else if(ROLE==='t2'){
+    vFilter='t2-queue';
+    el.innerHTML=`<div class="vtab on" onclick="setVFilter('t2-queue',this)"><i class="ti ti-clock-hour-4" style="font-size:14px"></i>Cần xử lý <span class="vbadge" id="vb-t2"></span></div><div class="vtab" onclick="setVFilter('tiepnhan',this)">Tiếp nhận</div><div class="vtab" onclick="setVFilter('henlich',this)">Đã hẹn</div><div class="vtab" onclick="setVFilter('all',this)">Tất cả</div>`;
+  } else {
+    vFilter='all';
+    el.innerHTML=`<div class="vtab on" onclick="setVFilter('all',this)"><i class="ti ti-layout-grid" style="font-size:14px"></i>Tất cả</div><div class="vtab" onclick="setVFilter('today',this)">Hôm nay</div><div class="vtab" onclick="setVFilter('urgent',this)"><i class="ti ti-alert-triangle" style="font-size:14px;color:var(--red)"></i>Cần xử lý <span class="vbadge" id="vb-urg"></span></div>`;
+  }
 }
+function setVFilter(v,el){vFilter=v;document.querySelectorAll('.vtab').forEach(t=>t.classList.remove('on'));el.classList.add('on');renderTable();}
+function setFilter(f,el){tFilter=f;document.querySelectorAll('.fbtn').forEach(b=>b.classList.remove('on'));if(el)el.classList.add('on');renderTable();}
+
+// Urgency
+function minsAgo(ts){return(Date.now()-new Date(ts).getTime())/60000;}
+function isOverdue(l){
+  if(l.ketqua||!['inbox','tiepnhan'].includes(l.col))return false;
+  return minsAgo(l.time_created)>30;
+}
+function isMissedAppt(l){
+  if(!l.gio_hen||l.da_ghe==='da'||l.ketqua)return false;
+  return new Date(l.gio_hen)<new Date();
+}
+function urgLevel(l){if(l.ketqua)return 0;if(isMissedAppt(l))return 2;if(isOverdue(l))return 1;return 0;}
+function urgLabel(l){if(isMissedAppt(l))return'⚠ Quá giờ hẹn';if(isOverdue(l))return"⏱ >30' chưa chăm";return'';}
 
 async function sb(path,opts={}){
-  const r=await fetch(SB_URL+'/rest/v1/'+path,{
-    headers:{'apikey':SB_KEY,'Authorization':'Bearer '+SB_KEY,'Content-Type':'application/json','Prefer':opts.prefer||'return=representation',...opts.headers},
-    ...opts
-  });
+  const r=await fetch(SB_URL+'/rest/v1/'+path,{headers:{'apikey':SB_KEY,'Authorization':'Bearer '+SB_KEY,'Content-Type':'application/json','Prefer':opts.prefer||'return=representation',...opts.headers},...opts});
   if(!r.ok){const e=await r.text();throw new Error(e);}
   return r.status===204?null:r.json();
 }
-
 async function fetchLeads(){
-  try{
-    const d=await sb('leads?order=id.desc&select=*');
-    leads=d.map(l=>({...l,history:l.history||[]}));
-    render();
-  }catch(e){
-    document.getElementById('tblBody').innerHTML=`<tr class="empty-row"><td colspan="11" style="color:red">Lỗi: ${e.message} <button onclick="resetCfg()" style="margin-left:8px;padding:4px 10px;background:var(--blue);color:#fff;border:none;border-radius:6px;cursor:pointer">Cài lại</button></td></tr>`;
-  }
+  try{const d=await sb('leads?order=id.desc&select=*');leads=d.map(l=>({...l,history:l.history||[]}));render();}
+  catch(e){document.getElementById('tblBody').innerHTML=`<tr class="empty-row"><td colspan="11" style="color:red">Lỗi: ${e.message} <button onclick="resetCfg()" style="margin-left:8px;padding:4px 10px;background:var(--blue);color:#fff;border:none;border-radius:6px;cursor:pointer">Cài lại</button></td></tr>`;}
 }
-
 function resetCfg(){localStorage.removeItem('sb_url');localStorage.removeItem('sb_key');location.reload();}
 
 function getFiltered(){
-  let q=document.getElementById('searchInput')?.value.toLowerCase()||'';
+  const q=(document.getElementById('searchInput')?.value||'').toLowerCase();
   let fl=leads;
-  if(filter==='hot') fl=fl.filter(l=>l.loai==='hot');
-  else if(filter==='warm') fl=fl.filter(l=>l.loai==='warm');
-  else if(filter==='chua-ghe') fl=fl.filter(l=>l.da_ghe==='chua'&&l.col!=='ketqua');
-  else if(filter==='today'){const t=new Date().toLocaleDateString('vi-VN');fl=fl.filter(l=>new Date(l.time_created).toLocaleDateString('vi-VN')===t);}
-  else if(filter!=='all') fl=fl.filter(l=>l.col===filter);
-  if(q) fl=fl.filter(l=>(l.name||'').toLowerCase().includes(q)||(l.phone||'').includes(q));
+  // Tab filter
+  if(vFilter==='inbox') fl=fl.filter(l=>l.col==='inbox'&&!l.ketqua);
+  else if(vFilter==='t2-queue') fl=fl.filter(l=>['tiepnhan','henlich','gheshop'].includes(l.col)&&!l.ketqua).sort((a,b)=>urgLevel(b)-urgLevel(a));
+  else if(vFilter==='today'){const t=new Date().toLocaleDateString('vi-VN');fl=fl.filter(l=>new Date(l.time_created).toLocaleDateString('vi-VN')===t);}
+  else if(vFilter==='urgent') fl=fl.filter(l=>urgLevel(l)>0);
+  else if(vFilter!=='all') fl=fl.filter(l=>l.col===vFilter);
+  // Toolbar filter
+  if(tFilter==='hot') fl=fl.filter(l=>l.loai==='hot'&&!l.ketqua);
+  else if(tFilter==='warm') fl=fl.filter(l=>l.loai==='warm'&&!l.ketqua);
+  else if(tFilter==='chua-ghe') fl=fl.filter(l=>l.da_ghe==='chua'&&!l.ketqua);
+  else if(tFilter==='today'){const t=new Date().toLocaleDateString('vi-VN');fl=fl.filter(l=>new Date(l.time_created).toLocaleDateString('vi-VN')===t);}
+  if(q)fl=fl.filter(l=>(l.name||'').toLowerCase().includes(q)||(l.phone||'').includes(q));
   return fl;
 }
 
-function render(){renderStats();renderTable();}
+function render(){renderStats();renderAlerts();renderTable();updateBadges();}
 
 function renderStats(){
-  const all=leads,today=new Date().toLocaleDateString('vi-VN');
+  const all=leads,tod=new Date().toLocaleDateString('vi-VN');
   document.getElementById('statsBar').innerHTML=`
-    <div class="stat"><div class="stat-lbl">Tổng leads</div><div class="stat-val blue">${all.length}</div></div>
-    <div class="stat"><div class="stat-lbl">Hôm nay</div><div class="stat-val">${all.filter(l=>new Date(l.time_created).toLocaleDateString('vi-VN')===today).length}</div></div>
-    <div class="stat"><div class="stat-lbl">Hot đang xử lý</div><div class="stat-val red">${all.filter(l=>l.loai==='hot'&&l.col!=='ketqua').length}</div></div>
-    <div class="stat"><div class="stat-lbl">Đã hẹn ghé shop</div><div class="stat-val amber">${all.filter(l=>l.col==='henlich').length}</div></div>
-    <div class="stat"><div class="stat-lbl">Đã chốt hôm nay</div><div class="stat-val green">${all.filter(l=>l.ketqua==='mua'&&new Date(l.time_created).toLocaleDateString('vi-VN')===today).length}</div></div>`;
+    <div class="stat"><div class="stat-lbl">IB hôm nay</div><div class="stat-val blue">${all.filter(l=>new Date(l.time_created).toLocaleDateString('vi-VN')===tod).length}</div></div>
+    <div class="stat"><div class="stat-lbl">Đã hẹn ghé</div><div class="stat-val amber">${all.filter(l=>l.col==='henlich').length}</div></div>
+    <div class="stat"><div class="stat-lbl">Chưa ghé shop</div><div class="stat-val">${all.filter(l=>l.da_ghe==='chua'&&!l.ketqua).length}</div></div>
+    <div class="stat"><div class="stat-lbl">Hot đang xử lý</div><div class="stat-val red">${all.filter(l=>l.loai==='hot'&&!l.ketqua).length}</div></div>
+    <div class="stat"><div class="stat-lbl">Đã chốt hôm nay</div><div class="stat-val green">${all.filter(l=>l.ketqua==='mua'&&new Date(l.time_created).toLocaleDateString('vi-VN')===tod).length}</div></div>`;
 }
 
-function fmtTime(v){
-  if(!v)return'';
-  try{const d=new Date(v);return d.toLocaleTimeString('vi-VN',{hour:'2-digit',minute:'2-digit'})+' '+d.toLocaleDateString('vi-VN',{day:'2-digit',month:'2-digit'});}catch{return v;}
+function renderAlerts(){
+  const bar=document.getElementById('alertBar'),items=document.getElementById('alertItems');
+  const missed=leads.filter(l=>isMissedAppt(l));
+  const overdue=leads.filter(l=>isOverdue(l)&&!isMissedAppt(l));
+  if(!missed.length&&!overdue.length){bar.classList.remove('show');return;}
+  bar.classList.add('show');
+  items.innerHTML=(missed.length?`<span class="alert-chip red" onclick="setVFilter2('missed')"><i class="ti ti-calendar-x" style="font-size:13px"></i>${missed.length} khách quá giờ hẹn chưa ghé</span>`:'')+(overdue.length?`<span class="alert-chip amber" onclick="setVFilter2('overdue')"><i class="ti ti-clock" style="font-size:13px"></i>${overdue.length} khách chờ >30' chưa chăm</span>`:'');
 }
-function fmtHen(v){
-  if(!v)return'<span style="color:var(--text3)">—</span>';
-  try{const d=new Date(v);return d.toLocaleString('vi-VN',{day:'2-digit',month:'2-digit',hour:'2-digit',minute:'2-digit'});}catch{return v;}
+function setVFilter2(v){vFilter=v;document.querySelectorAll('.vtab').forEach(t=>t.classList.remove('on'));renderTable();}
+
+function updateBadges(){
+  const ib=document.getElementById('vb-inbox'),t2=document.getElementById('vb-t2'),urg=document.getElementById('vb-urg');
+  if(ib){const n=leads.filter(l=>l.col==='inbox'&&!l.ketqua).length;ib.textContent=n||'';ib.style.display=n?'':'none';}
+  if(t2){const n=leads.filter(l=>['tiepnhan','henlich','gheshop'].includes(l.col)&&!l.ketqua).length;t2.textContent=n||'';t2.style.display=n?'':'none';}
+  if(urg){const n=leads.filter(l=>urgLevel(l)>0).length;urg.textContent=n||'';urg.style.display=n?'':'none';}
 }
+
+function fmtT(v){if(!v)return'';try{const d=new Date(v);return d.toLocaleTimeString('vi-VN',{hour:'2-digit',minute:'2-digit'})+' '+d.toLocaleDateString('vi-VN',{day:'2-digit',month:'2-digit'});}catch{return v;}}
+function fmtH(v){if(!v)return'<span style="color:var(--text3)">—</span>';try{return new Date(v).toLocaleString('vi-VN',{day:'2-digit',month:'2-digit',hour:'2-digit',minute:'2-digit'});}catch{return v;}}
 
 function renderTable(){
+  const isMgr=ROLE==='manager',isT1=ROLE==='t1';
+  const hdrs=isT1?['Khách hàng','Nguồn','Máy quan tâm','Ngân sách','Phân loại','Trạng thái','Nhân viên','Thời gian']:['Khách hàng','Nguồn','Máy','Ngân sách','Phân loại','Trạng thái','Ghé shop','Kết quả','Giờ hẹn','NV','Thời gian'];
+  document.getElementById('tblHead').innerHTML=`<tr>${hdrs.map(h=>`<th>${h}</th>`).join('')}</tr>`;
   const fl=getFiltered();
-  if(!fl.length){
-    document.getElementById('tblBody').innerHTML='<tr class="empty-row"><td colspan="11">Không có khách nào</td></tr>';
-    return;
-  }
+  if(!fl.length){document.getElementById('tblBody').innerHTML=`<tr class="empty-row"><td colspan="${hdrs.length}">Không có khách nào</td></tr>`;return;}
   document.getElementById('tblBody').innerHTML=fl.map(l=>{
-    const loaiCls={hot:'t-hot',warm:'t-warm',cold:'t-cold'}[l.loai]||'t-cold';
-    const loaiLbl={hot:'🔴 Hot',warm:'🟡 Warm',cold:'⚪ Cold'}[l.loai]||l.loai;
-    const colCls=COL_TAG[l.col]||'t-ketqua';
-    const colLbl=COL_LBL[l.col]||l.col;
-    const gheCls=l.da_ghe==='da'?'t-daghe':'t-chuaghe';
-    const gheLbl=l.da_ghe==='da'?'✓ Đã ghé':'Chưa ghé';
-    let kqHtml='<span style="color:var(--text3)">—</span>';
-    if(l.ketqua==='mua') kqHtml='<span class="tag t-mua">✓ Đã mua</span>';
-    else if(l.ketqua==='khong') kqHtml='<span class="tag t-khong">✗ Không mua</span>';
-    return`<tr onclick="openDetail(${l.id})">
-      <td><div class="name-cell">${l.name||''}</div><div class="sub-cell">${l.phone?`<a class="phone-link" onclick="event.stopPropagation()" href="tel:${l.phone}">${l.phone}</a>`:''}</div></td>
-      <td>${l.src||''}</td>
-      <td style="max-width:160px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">${l.may||'—'}</td>
-      <td>${l.budget||'<span style="color:var(--text3)">—</span>'}</td>
-      <td><span class="tag ${loaiCls}">${loaiLbl}</span></td>
-      <td><span class="tag ${colCls}">${colLbl}</span></td>
-      <td><span class="tag ${gheCls}">${gheLbl}</span></td>
-      <td>${kqHtml}</td>
-      <td style="white-space:nowrap;font-size:12px">${fmtHen(l.gio_hen)}</td>
-      <td style="font-size:12px">${l.nv||''}</td>
-      <td style="white-space:nowrap;font-size:11px;color:var(--text3)">${fmtTime(l.time_created)}</td>
-    </tr>`;
+    const lcls={hot:'t-hot',warm:'t-warm',cold:'t-cold'}[l.loai]||'t-cold';
+    const llbl={hot:'🔴 Hot',warm:'🟡 Warm',cold:'⚪ Cold'}[l.loai]||l.loai;
+    const urg=urgLevel(l),rowCls=urg===2?'urg':urg===1?'wrn':'';
+    const ulbl=urgLabel(l);
+    let kqH='<span style="color:var(--text3)">—</span>';
+    if(l.ketqua==='mua')kqH='<span class="tag t-mua">✓ Đã mua</span>';
+    else if(l.ketqua==='khong')kqH='<span class="tag t-khong">✗ Không mua</span>';
+    const nameH=`<td><div class="name-bold">${l.name||''}${urg===2?'<span class="urg-badge">!</span>':urg===1?'<span class="wrn-badge">30\'</span>':''}</div><div class="sub-txt">${l.phone?`<a href="tel:${l.phone}" onclick="event.stopPropagation()" style="color:var(--blue)">${l.phone}</a>`:''}</div>${ulbl?`<div style="font-size:10px;color:${urg===2?'var(--red)':'#92400E'};margin-top:2px">${ulbl}</div>`:''}</td>`;
+    if(isT1)return`<tr class="${rowCls}" onclick="openDetail(${l.id})">${nameH}<td>${l.src||''}</td><td style="max-width:140px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">${l.may||'—'}</td><td>${l.budget||'—'}</td><td><span class="tag ${lcls}">${llbl}</span></td><td><span class="tag ${CTAG[l.col]||'t-ketqua'}">${CLBL[l.col]||l.col}</span></td><td style="font-size:12px">${l.nv||''}</td><td style="font-size:11px;color:var(--text3);white-space:nowrap">${fmtT(l.time_created)}</td></tr>`;
+    return`<tr class="${rowCls}" onclick="openDetail(${l.id})">${nameH}<td>${l.src||''}</td><td style="max-width:130px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">${l.may||'—'}</td><td>${l.budget||'—'}</td><td><span class="tag ${lcls}">${llbl}</span></td><td><span class="tag ${CTAG[l.col]||'t-ketqua'}">${CLBL[l.col]||l.col}</span></td><td><span class="tag ${l.da_ghe==='da'?'t-daghe':'t-chuaghe'}">${l.da_ghe==='da'?'✓ Đã ghé':'Chưa ghé'}</span></td><td>${kqH}</td><td style="white-space:nowrap;font-size:12px">${fmtH(l.gio_hen)}</td><td style="font-size:12px">${l.nv||''}</td><td style="font-size:11px;color:var(--text3);white-space:nowrap">${fmtT(l.time_created)}</td></tr>`;
   }).join('');
 }
 
-function setFilter(f,el){
-  filter=f;
-  document.querySelectorAll('.fbtn').forEach(b=>b.classList.remove('on'));
-  el.classList.add('on');render();
-}
-
-function openAdd(){
-  document.getElementById('f-nv').value=ME||'Huyền (T1)';
-  document.getElementById('addModal').classList.add('show');
-}
+function openAdd(){document.getElementById('f-nv').value=ME||'Huyền (T1)';if(ROLE==='t1')document.getElementById('f-col').value='inbox';document.getElementById('addModal').classList.add('show');}
 
 async function saveLead(){
-  const name=document.getElementById('f-name').value.trim();
-  if(!name){alert('Vui lòng nhập tên khách');return;}
-  const nv=document.getElementById('f-nv').value;
-  const lead={name,src:document.getElementById('f-src').value,may:document.getElementById('f-may').value,
-    loai:document.getElementById('f-loai').value,col:document.getElementById('f-col').value,nv,
-    note:document.getElementById('f-note').value.trim(),phone:document.getElementById('f-phone').value.trim(),
-    zalo:document.getElementById('f-zalo').value.trim(),budget:document.getElementById('f-budget').value.trim(),
-    may_cu:document.getElementById('f-may-cu').value.trim(),gio_hen:document.getElementById('f-hen').value||null,
-    da_ghe:document.getElementById('f-ghe').value,
-    history:[{t:nowStr(),a:nv,txt:'Tiếp nhận IB'}]};
-  try{
-    const [saved]=await sb('leads',{method:'POST',body:JSON.stringify(lead)});
-    leads.unshift({...saved,history:saved.history||[]});
-    closeModal('addModal');
-    ['f-name','f-phone','f-zalo','f-budget','f-may-cu','f-note','f-hen'].forEach(id=>{const el=document.getElementById(id);if(el)el.value='';});
-    render();
-  }catch(e){alert('Lỗi lưu: '+e.message);}
+  const name=document.getElementById('f-name').value.trim();if(!name){alert('Nhập tên khách');return;}
+  const nv=document.getElementById('f-nv').value,hv=document.getElementById('f-hen').value;
+  const lead={name,src:document.getElementById('f-src').value,may:document.getElementById('f-may').value,loai:document.getElementById('f-loai').value,col:document.getElementById('f-col').value,nv,note:document.getElementById('f-note').value.trim(),phone:document.getElementById('f-phone').value.trim(),zalo:document.getElementById('f-zalo').value.trim(),budget:document.getElementById('f-budget').value.trim(),may_cu:document.getElementById('f-may-cu').value.trim(),gio_hen:hv||null,da_ghe:document.getElementById('f-ghe').value,history:[{t:nowStr(),a:nv,txt:'Tiếp nhận IB từ '+document.getElementById('f-src').value}]};
+  try{const[s]=await sb('leads',{method:'POST',body:JSON.stringify(lead)});leads.unshift({...s,history:s.history||[]});closeModal('addModal');['f-name','f-phone','f-zalo','f-budget','f-may-cu','f-note','f-hen'].forEach(id=>{const e=document.getElementById(id);if(e)e.value='';});render();}
+  catch(e){alert('Lỗi: '+e.message);}
 }
 
 async function updateLead(id,patch,histNote){
   const lead=leads.find(l=>l.id===id);if(!lead)return;
   if(histNote)patch.history=[...(lead.history||[]),{t:nowStr(),a:ME,txt:histNote}];
-  try{
-    await sb(`leads?id=eq.${id}`,{method:'PATCH',prefer:'return=minimal',body:JSON.stringify(patch)});
-    Object.assign(lead,patch);closeModal('detailModal');render();
-  }catch(e){alert('Lỗi: '+e.message);}
+  try{await sb(`leads?id=eq.${id}`,{method:'PATCH',prefer:'return=minimal',body:JSON.stringify(patch)});Object.assign(lead,patch);closeModal('detailModal');render();}
+  catch(e){alert('Lỗi: '+e.message);}
 }
 
 function openDetail(id){
   const l=leads.find(x=>x.id===id);if(!l)return;
   document.getElementById('det-title').textContent=l.name;
-  const otherCols=COLS.filter(c=>c.id!==l.col);
-  const infos=[
-    l.phone?`<div class="info-item"><div class="info-lbl">Điện thoại</div><div class="info-val"><a href="tel:${l.phone}" style="color:var(--blue)">${l.phone}</a></div></div>`:'',
-    l.zalo?`<div class="info-item"><div class="info-lbl">Zalo</div><div class="info-val">${l.zalo}</div></div>`:'',
-    l.may?`<div class="info-item"><div class="info-lbl">Máy quan tâm</div><div class="info-val">${l.may}</div></div>`:'',
-    l.budget?`<div class="info-item"><div class="info-lbl">Ngân sách</div><div class="info-val">${l.budget}</div></div>`:'',
-    l.may_cu?`<div class="info-item"><div class="info-lbl">Máy cũ</div><div class="info-val">${l.may_cu}</div></div>`:'',
-    l.gio_hen?`<div class="info-item"><div class="info-lbl">Giờ hẹn</div><div class="info-val">${fmtHen(l.gio_hen)}</div></div>`:'',
-  ].filter(Boolean).join('');
+  const urg=urgLevel(l);
+  const infos=[l.phone?`<div class="info-item"><div class="info-lbl">Điện thoại</div><div class="info-val"><a href="tel:${l.phone}" style="color:var(--blue)">${l.phone}</a></div></div>`:'',l.zalo?`<div class="info-item"><div class="info-lbl">Zalo</div><div class="info-val">${l.zalo}</div></div>`:'',l.may?`<div class="info-item"><div class="info-lbl">Máy quan tâm</div><div class="info-val">${l.may}</div></div>`:'',l.budget?`<div class="info-item"><div class="info-lbl">Ngân sách</div><div class="info-val">${l.budget}</div></div>`:'',l.may_cu?`<div class="info-item"><div class="info-lbl">Máy cũ</div><div class="info-val">${l.may_cu}</div></div>`:'',l.gio_hen?`<div class="info-item"><div class="info-lbl">Giờ hẹn</div><div class="info-val">${fmtH(l.gio_hen)}</div></div>`:''].filter(Boolean).join('');
   document.getElementById('det-body').innerHTML=`
+    ${urg>0?`<div class="urg-alert"><i class="ti ti-alert-triangle" style="font-size:16px"></i>${urgLabel(l)} — Cần xử lý ngay!</div>`:''}
     ${infos?`<div class="info-grid">${infos}</div>`:''}
-    <div class="fl"><label>Cập nhật ghi chú</label><textarea id="d-note" placeholder="Nhập cập nhật...">${l.note||''}</textarea></div>
+    <div class="fl"><label>Cập nhật ghi chú</label><textarea id="d-note">${l.note||''}</textarea></div>
     <div class="row3">
-      <div class="fl"><label>Phân loại</label><select id="d-loai">
-        <option value="hot"${l.loai==='hot'?' selected':''}>🔴 Hot</option>
-        <option value="warm"${l.loai==='warm'?' selected':''}>🟡 Warm</option>
-        <option value="cold"${l.loai==='cold'?' selected':''}>⚪ Cold</option>
-      </select></div>
-      <div class="fl"><label>Đã ghé shop?</label><select id="d-ghe">
-        <option value="chua"${(l.da_ghe||'chua')==='chua'?' selected':''}>Chưa ghé</option>
-        <option value="da"${l.da_ghe==='da'?' selected':''}>Đã ghé</option>
-      </select></div>
+      <div class="fl"><label>Phân loại</label><select id="d-loai"><option value="hot"${l.loai==='hot'?' selected':''}>🔴 Hot</option><option value="warm"${l.loai==='warm'?' selected':''}>🟡 Warm</option><option value="cold"${l.loai==='cold'?' selected':''}>⚪ Cold</option></select></div>
+      <div class="fl"><label>Đã ghé?</label><select id="d-ghe"><option value="chua"${(l.da_ghe||'chua')==='chua'?' selected':''}>Chưa ghé</option><option value="da"${l.da_ghe==='da'?' selected':''}>Đã ghé</option></select></div>
       <div class="fl"><label>Nhân viên</label><select id="d-nv">${NVS.map(n=>`<option${n===l.nv?' selected':''}>${n}</option>`).join('')}</select></div>
     </div>
     <div class="row2">
       <div class="fl"><label>Giờ hẹn</label><input type="datetime-local" id="d-hen" value="${l.gio_hen?l.gio_hen.slice(0,16):''}"></div>
-      <div class="fl"><label>Ngân sách</label><input id="d-budget" value="${l.budget||''}" placeholder="VD: 15.000.000đ"></div>
+      <div class="fl"><label>Ngân sách</label><input id="d-budget" value="${l.budget||''}" placeholder="15.000.000đ"></div>
     </div>
     <div class="status-sec">
       <h4>Chuyển trạng thái</h4>
-      <div class="move-btns">${otherCols.map(c=>`<button class="move-btn" onclick="doMove(${id},'${c.id}','${c.lbl}')">${c.lbl} →</button>`).join('')}</div>
-      <div class="kq-btns">
-        <button class="btn-mua" onclick="doKetqua(${id},'mua')"><i class="ti ti-check"></i> Đã mua</button>
-        <button class="btn-khong" onclick="toggleLyDo()"><i class="ti ti-x"></i> Không mua</button>
+      <div class="move-btns">${COLS.filter(c=>c.id!==l.col).map(c=>`<button class="move-btn" onclick="doMove(${id},'${c.id}','${c.lbl}')">${c.lbl} →</button>`).join('')}</div>
+      <div class="kq-row">
+        <button class="btn-mua" onclick="doMua(${id})"><i class="ti ti-check"></i> Đã mua</button>
+        <button class="btn-khong-o" onclick="toggleLyDo()"><i class="ti ti-x"></i> Không mua</button>
       </div>
       <div id="lydo-wrap" style="display:none;margin-top:10px">
         <div class="fl"><label>Lý do không mua</label><select id="d-lydo">${LY_DO.map(r=>`<option>${r}</option>`).join('')}</select></div>
-        <button class="btn-khong" style="margin-top:6px" onclick="doKhong(${id})">Xác nhận</button>
+        <button class="btn-khong-o" style="margin-top:6px" onclick="doKhong(${id})">Xác nhận</button>
       </div>
     </div>
     <div class="hist-sec">
-      <h4><i class="ti ti-history" style="vertical-align:-2px;margin-right:4px"></i>Lịch sử</h4>
-      ${(l.history||[]).slice().reverse().map(h=>`<div class="hist-item"><div class="hist-time">${h.t} — ${h.a}</div>${h.txt}</div>`).join('')||'<div style="font-size:12px;color:var(--text3)">Chưa có lịch sử</div>'}
+      <h4><i class="ti ti-history"></i>Lịch sử</h4>
+      ${(l.history||[]).slice().reverse().map(h=>`<div class="hist-item"><div class="hist-time">${h.t} — ${h.a}</div>${h.txt}</div>`).join('')||'<div style="font-size:12px;color:var(--text3)">Chưa có</div>'}
     </div>
     <div class="modal-foot">
       <button class="btn-sec" onclick="closeModal('detailModal')">Đóng</button>
@@ -519,24 +477,17 @@ function openDetail(id){
 }
 
 function toggleLyDo(){const w=document.getElementById('lydo-wrap');w.style.display=w.style.display==='none'?'block':'none';}
-
 function saveDetail(id){
-  const note=document.getElementById('d-note').value.trim();
-  const loai=document.getElementById('d-loai').value;
-  const nv=document.getElementById('d-nv').value;
-  const da_ghe=document.getElementById('d-ghe').value;
-  const gio_hen=document.getElementById('d-hen').value||null;
-  const budget=document.getElementById('d-budget').value.trim();
-  const lead=leads.find(l=>l.id===id);
-  let parts=[];
+  const note=document.getElementById('d-note').value.trim(),loai=document.getElementById('d-loai').value,nv=document.getElementById('d-nv').value,da_ghe=document.getElementById('d-ghe').value,hv=document.getElementById('d-hen').value,gio_hen=hv||null,budget=document.getElementById('d-budget').value.trim();
+  const lead=leads.find(l=>l.id===id);let parts=[];
   if(note!==(lead.note||''))parts.push('Ghi chú: '+note.substring(0,50));
-  if(da_ghe!==(lead.da_ghe||'chua'))parts.push(da_ghe==='da'?'Đánh dấu đã ghé shop':'Đánh dấu chưa ghé');
+  if(da_ghe!==(lead.da_ghe||'chua'))parts.push(da_ghe==='da'?'Đánh dấu đã ghé shop':'Chưa ghé');
   if(gio_hen!==(lead.gio_hen||null))parts.push('Cập nhật giờ hẹn');
   updateLead(id,{note,loai,nv,da_ghe,gio_hen,budget},parts.length?parts.join(' | '):'Cập nhật thông tin');
 }
-function doMove(id,colId,colLbl){const nv=document.getElementById('d-nv').value;updateLead(id,{col:colId,nv},`Chuyển sang "${colLbl}"`);}
-function doKetqua(id){const nv=document.getElementById('d-nv').value;updateLead(id,{col:'ketqua',ketqua:'mua',nv,da_ghe:'da'},'Chốt đơn — khách đã mua');}
-function doKhong(id){const nv=document.getElementById('d-nv').value,ly=document.getElementById('d-lydo').value;updateLead(id,{col:'ketqua',ketqua:'khong',nv},`Không mua — ${ly}`);}
+function doMove(id,cid,clbl){const nv=document.getElementById('d-nv').value;updateLead(id,{col:cid,nv},cid==='tiepnhan'?`Bàn giao T2 — "${clbl}"`:`Chuyển sang "${clbl}"`);}
+function doMua(id){const nv=document.getElementById('d-nv').value;updateLead(id,{col:'ketqua',ketqua:'mua',nv,da_ghe:'da'},'✓ Chốt đơn thành công');}
+function doKhong(id){const nv=document.getElementById('d-nv').value,ly=document.getElementById('d-lydo').value;updateLead(id,{col:'ketqua',ketqua:'khong',nv},`✗ Không mua — ${ly}`);}
 function closeModal(id){document.getElementById(id).classList.remove('show');}
 function nowStr(){return new Date().toLocaleString('vi-VN',{hour:'2-digit',minute:'2-digit',day:'2-digit',month:'2-digit'});}
 document.querySelectorAll('.overlay').forEach(el=>el.addEventListener('click',e=>{if(e.target===el)el.classList.remove('show');}));
